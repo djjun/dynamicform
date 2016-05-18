@@ -1,0 +1,17 @@
+{
+  "name": "dynamicForm",
+  "version": "0.0.1",
+  "authors": [
+    "Luan Oliveira"
+  ],
+  "description": "",
+  "main": "assets/js/main.js",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6"
+  }
+}
