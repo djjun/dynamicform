@@ -13,46 +13,20 @@
 <body>
 
 <div class="container">
-    <div class="col-md-10 col-md-offset-1 backwhite">
-        <div class="page-header">
-            <h1>Formulário</h1>
-        </div>
-
-        <div class="col-md-10 col-md-offset-1">
-            <div id="integration_form"></div>             
-        </div>    
+    <div class="col-md-10 col-md-offset-1 backwhite">        
         
-        <button type="button" class="btn btn-primary btn-lg" onclick="teste1()">
-          Teste
-        </button>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <a id="integration_form" href="#">Ir</a>             
+            </div>    
+        </div>        
         
-        <!-- MODAL -->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          Modal
-        </button>        
-        <!-- MODAL -->
     </div>
 </div>    
 
-<!-- MODAL -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- MODAL -->
+<button type="button" class="btn btn-primary btn-lg" onclick="teste1()">
+  Teste
+</button>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -63,15 +37,18 @@
     $(document).ready(function(){
 
         options = { 
-            'token':'62bb61431348e22850828a5829c4373faafe29c1', 
-            'secret':'51a266c2844ccd5cac83d88de88d82d05358aa51', 
-            'fields':{ 
+            'token'  : '62bb61431348e22850828a5829c4373faafe29c1', 
+            'secret' : '51a266c2844ccd5cac83d88de88d82d05358aa51',
+            'modal'  :  true, 
+            'title'  : 'Teste',
+            'saveurl'    : 'http://ec2-54-94-187-233.sa-east-1.compute.amazonaws.com/senairunner/rest/index.php/runs',
+            'fields' :{ 
                 'estado':['PR','SC','SP','RS'], 
                 'nível':['Iniciante','Intermediário','Avançado','Ninja'] 
             } 
         } 
 
-        $('div#integration_form').dynaform(options);
+        $('#integration_form').dynaform(options);
 
         teste = function(){
             $.ajax({
@@ -111,7 +88,7 @@
         salvar = function(){
             var form = $("#form");    
             var data = getFormData(form);
-            console.log(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
         }
 
         function getFormData($form){

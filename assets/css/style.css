@@ -1,9 +1,24 @@
-body{
-	background-color: #EEEEEE;
+.df-window{
+    display:none;
+    width: 50%;    
+    position:absolute;
+    left:0;
+    top:0;
+    background:#FFF;
+    z-index:9900;
+    padding: 10px 30px 30px 30px;
+    border-radius:10px;
+}
+ 
+#df-mascara{
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
 }
 
-.backwhite{
-	margin-top: 50px;
-	background-color: #FFFFFF;
-	padding-bottom: 50px;
+.df-modal-footer #df-btn-fechar{
+	margin-left: 10px;
 }
