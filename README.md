@@ -103,7 +103,7 @@ Can be passed multiple fields and will result in select fields, the keys will be
 
 Form title
 
-## Test with web service
+## Test dynamicForm with web service
 
 Access the 'rest' directory
 
