@@ -102,3 +102,17 @@ Can be passed multiple fields and will result in select fields, the keys will be
 #### title
 
 Form title
+
+## Test with web service
+
+Access the 'rest' directory
+Run 
+```js 
+npm install 
+```
+Run 
+```js 
+node server.js
+```
+
+will create a service on port : 8081
