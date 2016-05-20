@@ -3,12 +3,13 @@
 
     	//default values
     	var defaults = {
-          'token' 	: '',
-          'secret' 	: '',
-          'fields' 	: '',
-          'modal' 	: false,
-          'title'   : 'Formulário',
-          'saveurl' : ''
+          'token' 	  : '',
+          'secret' 	  : '',
+          'fields' 	  : '',
+          'modal' 	  : false,
+          'title'     : 'Formulário',
+          'saveurl'   : '',
+          'redirect'  : ''
         };
  
         var settings = $.extend( {}, defaults, options );
@@ -124,27 +125,18 @@
 	                contentType: "application/json",         
 	                dataType: "json",
 	                success: function(data){
-	                	//console.log(data);
+	                	if(settings.redirect){
+	                		window.location.replace(settings.redirect);
+	                	}	
 	                },
 	                error: function(errMsg) {
-	                    //console.log(errMsg);
+	                	if(!$('#save-error').length){
+	                		$('<p id="save-error" class="df-field-error">Erro ao salvar dados</p>').appendTo('.'+df_id+'-footer');
+	                    	setTimeout(function() { $('p.df-field-error').remove(); }, 5000);
+	                	}	                    
 	                }
 	            });
-		    };	  
-
-		   //  $('#'+df_id+'-input-nome').blur(function(){
-		   //  	if($(this).val() != undefined && $(this).val().trim() != ""){
-     //                var idError = $(this).attr('name');
-					// $('p#'+df_id+'-'+idError+'-error').remove();
-		   //  	}	    		
-		   //  });
-
-		   //  $('#'+df_id+'-input-email').blur(function(){
-		   //  	if($(this).val() != undefined && $(this).val().trim() != ""){
-     //                var idError = $(this).attr('name');
-					// $('p#'+df_id+'-'+idError+'-error').remove();
-		   //  	}	    		
-		   //  });
+		    };	  		
 
 		    function getFormData($form){
 	            var unindexed_array = $form.serializeArray();
@@ -179,7 +171,7 @@
 				$('<select class="form-control" id="'+df_id+'-select-'+field+'" name="'+field+'"></select>').appendTo('form#' + df_id + '-form div.' + df_id + '-' + field);
 				
 				$.each(values, function( indexOption, labelOption){
-					$('<option value="'+indexOption+'">'+labelOption+'</option>').appendTo('select#'+df_id+'-select-'+field);
+					$('<option value="'+labelOption+'">'+labelOption+'</option>').appendTo('select#'+df_id+'-select-'+field);
 				});
 			});
 
@@ -188,7 +180,7 @@
 			$('<div class="'+df_id+'-footer"><a id="'+df_id+'-btn-salvar" onclick="df_salvar()" class="btn btn-success">Salvar</a></div>').appendTo('form#'+df_id+'-form');
 
 			if(settings.modal){
-				$('<a id="'+df_id+'-btn-fechar" onclick="df_fechar()" class="btn btn-default df-btn-fechar>Fechar</a>').appendTo('.'+df_id+'-footer');
+				$('<a id="'+df_id+'-btn-fechar" onclick="df_fechar()" class="btn btn-default df-btn-fechar">Fechar</a>').appendTo('.'+df_id+'-footer');
 			}
 
     	});
