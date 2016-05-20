@@ -7,13 +7,13 @@ http://codepen.io/luanmoliveira/pen/YqoEeJ
 ## Example Usage
 
 To create the form in a div:
-### HTML
+#### HTML
 
 ```html
 <div id="dynamic"></div>
 ```
 
-### jQuery
+#### jQuery
 Use the plugin as follows:
 ```js
 options = { 
@@ -32,13 +32,13 @@ $('#dynamic').dynaform(options);
 
 
 To create the form from a link and open in a modal:
-### HTML
+#### HTML
 
 ```html
 <a id="dynamic" href="#">Open form</a>
 ```
 
-### jQuery
+#### jQuery
 Use the plugin as follows:
 ```js
 options = { 
