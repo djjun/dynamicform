@@ -7,7 +7,6 @@ http://codepen.io/luanmoliveira/pen/YqoEeJ
 ## Example Usage
 
 To create the form in a div:
-
 ### HTML
 
 ```html
@@ -15,7 +14,7 @@ To create the form in a div:
 ```
 
 ### jQuery
-
+Use the plugin as follows:
 ```js
 options = { 
   'token'  : '62bb61431348e22850828a5829c4373faafe29c1', 
@@ -31,8 +30,8 @@ options = {
 $('#dynamic').dynaform(options);  
 ```
 
-To create the form from a link and open in a modal:
 
+To create the form from a link and open in a modal:
 ### HTML
 
 ```html
@@ -40,7 +39,7 @@ To create the form from a link and open in a modal:
 ```
 
 ### jQuery
-
+Use the plugin as follows:
 ```js
 options = { 
     'token'  : '62bb61431348e22850828a5829c4373faafe29c1', 
