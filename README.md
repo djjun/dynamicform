@@ -75,3 +75,30 @@ options = {
 
 $('#dynamic').dynaform(options);  
 ```
+
+## Options
+
+#### token and secret
+To pass access information
+
+#### modal
+
+If true and the element with the id is a link , the form is built on a modal
+
+If false and the element with the id is a div , the form is built inside the div
+
+#### saveurl
+
+Url to which the form data will be sent using POST (JSON )
+
+#### redirect
+
+Url to redirect after the registration of the form information
+
+#### fields
+
+Can be passed multiple fields and will result in select fields, the keys will be the title of the fields and the array values are the options of select fields
+
+#### title
+
+Form title
