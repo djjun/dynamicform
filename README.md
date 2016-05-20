@@ -1,12 +1,32 @@
 # dynamicForm jQuery Plugin
 
+## Dependencies
+
+dynamicForm depends on jQuery and can use Bootstrap
+
+```html
+<link href="dist/css/bootstrap.css" rel="stylesheet">
+<script type="text/javascript" src="dist/js/jquery.min.js"></script>
+```
+
+## Installation
+
+Include dynaform.js script after jquery library and the dynaform.css
+
+```html
+<link href="/path/to/dynaform.css" rel="stylesheet">
+<script src="/path/to/dynaform.js"></script>
+```
+
 ## Demo with modal form
 
 http://codepen.io/luanmoliveira/pen/YqoEeJ
 
 ## Example Usage
 
-To create the form in a div:
+The form can be built in a div or a modal
+
+1) To create the form in a div:
 #### HTML
 
 ```html
@@ -31,7 +51,7 @@ $('#dynamic').dynaform(options);
 ```
 
 
-To create the form from a link and open in a modal:
+2) To create the form from a link and open in a modal:
 #### HTML
 
 ```html
@@ -52,4 +72,33 @@ options = {
         'nível':['Iniciante','Intermediário','Avançado','Ninja'] 
     } 
 }
+
+$('#dynamic').dynaform(options);  
 ```
+
+## Options
+
+#### token and secret
+To pass access information
+
+#### modal
+
+If true and the element with the id is a link , the form is built on a modal
+
+If false and the element with the id is a div , the form is built inside the div
+
+#### saveurl
+
+Url to which the form data will be sent using POST (JSON )
+
+#### redirect
+
+Url to redirect after the registration of the form information
+
+#### fields
+
+Can be passed multiple fields and will result in select fields, the keys will be the title of the fields and the array values are the options of select fields
+
+#### title
+
+Form title
