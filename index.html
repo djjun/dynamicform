@@ -7,7 +7,7 @@
 	<title>dynamicForm</title>	
 	    
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">    
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">    
+    <link rel="stylesheet" type="text/css" href="assets/css/dynaform.css">    
 
 </head>
 <body>
@@ -17,19 +17,15 @@
         
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <a id="integration_form" href="#">Ir</a>             
+                <a id="dynamic" href="#">Open form</a>
+                <!-- <div id="dynamic"></div> -->
             </div>    
         </div>        
         
     </div>
 </div>    
 
-<button type="button" class="btn btn-primary btn-lg" onclick="teste1()">
-  Teste
-</button>
-
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/js/dynaform.js"></script>
 
 <script type="text/javascript">
@@ -41,66 +37,14 @@
             'secret' : '51a266c2844ccd5cac83d88de88d82d05358aa51',
             'modal'  :  true, 
             'title'  : 'Teste',
-            'saveurl'    : 'http://ec2-54-94-187-233.sa-east-1.compute.amazonaws.com/senairunner/rest/index.php/runs',
-            'fields' :{ 
+            'saveurl': 'http://localhost:8081',
+            'fields' : { 
                 'estado':['PR','SC','SP','RS'], 
                 'nível':['Iniciante','Intermediário','Avançado','Ninja'] 
             } 
         } 
 
-        $('#integration_form').dynaform(options);
-
-        teste = function(){
-            $.ajax({
-                url: 'http://ec2-54-94-187-233.sa-east-1.compute.amazonaws.com/senairunner/rest/index.php/runs',
-                type: 'GET',                
-                dataType: "json",
-                success: function(res) {                       
-                    write(res);                                     
-                },
-                error: function(xhr, msg, e){
-                    
-                }
-            });
-        };
-
-        teste1 = function(){
-            var dados = '{"id":null,"nome":"aaaaaa","data":"2016-05-02T03:00:00.000Z","descricao":"aaaaaa","cidade":"aaaaaa","estado":"PA","valor_inscricao":2,"status":null,"data_cadastro":null}';
-
-            $.ajax({
-                type: "POST",   
-                url: "http://ec2-54-94-187-233.sa-east-1.compute.amazonaws.com/senairunner/rest/index.php/runs",    
-                data: dados,                
-                dataType: "json",
-                success: function(data){
-
-                },
-                failure: function(errMsg) {
-                    
-                }
-            });    
-        };
-
-        write = function(data){
-            $('.backwhite').append('<pre>' + JSON.stringify(data) + '</pre>');            
-        };
-
-        salvar = function(){
-            var form = $("#form");    
-            var data = getFormData(form);
-            //console.log(JSON.stringify(data));
-        }
-
-        function getFormData($form){
-            var unindexed_array = $form.serializeArray();
-            var indexed_array = {};
-
-            $.map(unindexed_array, function(n, i){
-                indexed_array[n['name']] = n['value'];
-            });
-
-            return indexed_array;
-        }
+        $('#dynamic').dynaform(options);        
         
     });
 
