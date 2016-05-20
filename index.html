@@ -7,7 +7,7 @@
 	<title>dynamicForm</title>	
 	    
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">    
-    <link rel="stylesheet" type="text/css" href="assets/css/dynaform.css">    
+    <link rel="stylesheet" type="text/css" href="src/css/dynaform.css">    
 
 </head>
 <body>
@@ -17,8 +17,8 @@
         
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <a id="dynamic" href="#">Open form</a>
-                <!-- <div id="dynamic"></div> -->
+                <!-- <a id="dynamic" href="#">Open form</a> -->
+                <div id="dynamic"></div>
             </div>    
         </div>        
         
@@ -26,7 +26,7 @@
 </div>    
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="assets/js/dynaform.js"></script>
+<script src="src/js/dynaform.js"></script>
 
 <script type="text/javascript">
 
@@ -35,7 +35,7 @@
         options = { 
             'token'  : '62bb61431348e22850828a5829c4373faafe29c1', 
             'secret' : '51a266c2844ccd5cac83d88de88d82d05358aa51',
-            'modal'  :  true, 
+            'modal'  :  false, 
             'title'  : 'Teste',
             'saveurl': 'http://localhost:8081',
             'fields' : { 
